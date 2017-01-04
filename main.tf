@@ -19,5 +19,4 @@ resource "aws_nat_gateway" "natgw" {
   allocation_id             = "${element(aws_eip.nateip.*.id, count.index)}"
   subnet_id                 = "${element(var.public_subnet_ids, count.index)}"
   count                     = "${length(var.private_subnets)}"
-
-}
+  }
