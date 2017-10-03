@@ -4,7 +4,7 @@ IMPROVEMENTS:
 * Updated Readme
 
 
-## v0.0.1 (December 08, 2016)
+## 0.0.1 (December 08, 2016)
 
 Initial version
 
