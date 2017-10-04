@@ -1,36 +1,33 @@
-## tf-aws-nat-gateway
-
+tf-aws-nat-gateway
 -----
 
-This module is for creating a nat gateway per AZ
+This module is for creating a nat gateway per AZ.
 
+Usage
 -----
 
-### Usage
+```js
 
------
+module "natgw" {
+    source = "git::ssh://git@gogs.bashton.net/Bashton-Terraform-Modules/tf-aws-nat-gateway.git"
 
-Declare a module in your Terraform file, for example:
+    private_subnets         = ["10.0.101.0/24","10.0.102.0/24","10.0.103.0/24"]
+    public_subnet_ids       = ["subnet-id,subnet-id"]
+    private_route_table_ids = ["route_table_id,route_table_id"]
+}
+```
 
+Variables
+---------
+_Variables marked with **[*]** are mandatory._
 
-    module "natgw" {
-        source = "git::ssh://git@gogs.bashton.net/Bashton-Terraform-Modules/tf-aws-nat-gateway.git"
+* `private_subnets` - List of the private subnet CIDR blocks that require a NAT gateway. **[*]**
 
-        private_subnets         = ["10.0.101.0/24","10.0.102.0/24","10.0.103.0/24"]
-        public_subnet_ids       = ["subnet-id,subnet-id"]
-        private_route_table_ids = ["route_table_id,route_table_id"]
-        }
+* `public_subnet_ids` - List of the public subnet IDs that require a NAT gateway. **[*]**
 
-
-### Required Variables
-
-* private_subnets - counts the number of private subnets.
-
-* public_subnet_ids - ids of the public subnet ids that require a nat gateway.
-
-* private_route_table_ids - ids of the private route tables that need updating.
+* `private_route_table_ids` - List of the private route tables that need updating. **[*]**
 
 
-### Outputs
-
-* nat_gateway_id - id of the nat gateway.
+Outputs
+-------
+* `nat_gateway_id` - ID of the NAT gateway.
