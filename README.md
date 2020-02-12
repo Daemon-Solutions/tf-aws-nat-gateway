@@ -3,6 +3,13 @@ tf-aws-nat-gateway
 
 This module is for creating a nat gateway per AZ.
 
+## Terraform version compatibility
+
+| Module version | Terraform version |
+|----------------|-------------------|
+| 1.x.x          | 0.12.x            |
+| 0.x.x          | 0.11.x            |
+
 Usage
 -----
 
